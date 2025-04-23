@@ -98,8 +98,7 @@ export function ResetButton({
 
   const maybePlaySoundOnResetStart = () => {
     if (!config?.feedbackSound) return;
-    if (type !== ResetType.Yaw)
-      playSoundOnResetStarted(config?.feedbackSoundVolume);
+    playSoundOnResetStarted(config?.feedbackSoundVolume);
   };
 
   const triggerReset = () => {

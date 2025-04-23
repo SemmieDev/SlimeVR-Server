@@ -15,7 +15,6 @@ import {
   DeviceDataT,
   ResetResponseT,
   ResetStatus,
-  ResetType,
   RpcMessage,
   StartDataFeedT,
   TrackerDataT,
@@ -124,8 +123,7 @@ export function useProvideAppContext(): AppContext {
     try {
       switch (status) {
         case ResetStatus.STARTED: {
-          if (resetType !== ResetType.Yaw)
-            playSoundOnResetStarted(config?.feedbackSoundVolume);
+          playSoundOnResetStarted(config?.feedbackSoundVolume);
           break;
         }
         case ResetStatus.FINISHED: {
