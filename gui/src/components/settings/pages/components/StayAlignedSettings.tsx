@@ -130,6 +130,7 @@ ${trackers
 
 OTHER
 =====
+Drift compensation: ${values.driftCompensation.enabled ? 'true <------------ WTF' : 'false'}
 Filtering: type=${values.filtering.type} amount=${numberFormat.format(values.filtering.amount)}
 Enforce constraints: ${boolify(values.toggles.enforceConstraints)}
 Skating correction: ${boolify(values.toggles.skatingCorrection)}
@@ -202,6 +203,13 @@ export function StayAlignedSettings({
           <Typography variant="section-title">
             {l10n.getString('settings-stay_aligned-general-label')}
           </Typography>
+          {values.stayAligned.enabled && values.driftCompensation.enabled && (
+            <div className="mt-2">
+              {l10n.getString(
+                'settings-stay_aligned-warnings-drift_compensation'
+              )}
+            </div>
+          )}
           <div className="grid sm:grid-cols-2 gap-3 mt-2">
             <CheckBox
               variant="toggle"
